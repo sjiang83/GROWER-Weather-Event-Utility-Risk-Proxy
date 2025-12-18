@@ -28,4 +28,12 @@ A major hurricane (e.g., Hurricane Helene) often sweeps across multiple states, 
 - **FIPS Coding Issues:** Initially, I attempted to use `fipsCountyCode` for high-resolution mapping, but found many records contained "0" or missing values in the API response. I switched to a robust count of unique `designatedArea` to maintain consistency.
 - **Dynamic Filtering:** Instead of hard-filtering small events during ETL, I kept the full dataset and applied a threshold (e.g., `affected_areas_count > 5`) within the Notebook to allow for sensitivity testing without losing raw information.
 
-##
+## 📈 Analysis Methodology
+By constructing a **Composite Risk Score** (standardizing 30-day rolling volatility and maximum drawdown), the analysis reveals a visible "Risk Spike" in the XLU sector following the onset (T=0) of major weather shocks. 
+
+
+
+## 🚀 Future Work (Connection to GROWER)
+- **From Financial Proxies to Physical Truth:** Replace XLU market data with real-time **Outage Data** (duration/frequency) to build a direct resilience model.
+- **Spatial Precision:** Moving from state-level aggregation to high-resolution GIS analysis, addressing the fact that a high county count does not always correlate with the total impacted geographic area.
+- **Resource Optimization:** Use the Risk Score framework to develop predictive "Readiness Triggers" for emergency response and resource pre-positioning.
